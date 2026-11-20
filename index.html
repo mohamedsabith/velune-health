@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Velune Health</title>
+  <meta name="description" content="Velune Health is a concept website for a fictional private clinic: forty-five minute consultations, diagnostics under one roof, and one doctor who stays with you. All names and details are placeholder content.">
+  <meta name="theme-color" content="#F7F7F3">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2328594F'/%3E%3Cpath d='M10 25V14a6 6 0 0 1 12 0v11' fill='none' stroke='%23F7F7F3' stroke-width='1.6'/%3E%3Cpath d='M7 25h18' stroke='%23F7F7F3' stroke-width='1.6'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-panels loader-panels-back"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="loader-panels loader-panels-front"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="loader-glow"></div>
+    <div class="loader-content">
+      <div class="loader-row loader-top"><span>Velune Health</span><span>Kochi, Kerala</span></div>
+      <div class="loader-stage">
+        <svg class="loader-pulse" viewBox="0 0 640 90"><path pathLength="1" d="M0 45 H250 L262 45 L272 30 L282 45 L292 45 L302 8 L316 82 L328 34 L338 45 L352 45 Q364 45 370 36 Q376 27 384 45 H640"/><circle cx="302" cy="8" r="3.2"/></svg>
+        <div class="loader-brand">
+          <p class="loader-word"><span class="ch"><span>V</span></span><span class="ch"><span>e</span></span><span class="ch"><span>l</span></span><span class="ch"><span>u</span></span><span class="ch"><span>n</span></span><span class="ch"><span>e</span></span></p>
+          <p class="loader-sub"><i></i><span><b>Preventive and specialist care</b></span><i></i></p>
+        </div>
+      </div>
+      <div class="loader-row loader-bottom"><span class="loader-status" id="loader-status">Preparing your visit</span><span class="loader-count"><span id="loader-count">0</span><sup>%</sup></span></div>
+      <div class="loader-line"><span id="loader-bar"></span></div>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- NAVIGATION -->
+  <header class="site-nav" id="site-nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#top" aria-label="Velune Health, home">
+        <svg class="logo-mark" viewBox="0 0 24 30" aria-hidden="true"><path d="M5 27V12a7 7 0 0 1 14 0v15"/><path d="M1 27h22"/><path d="M12 27v-7"/></svg>
+        <span class="logo-word">Velune</span>
+        <span class="logo-sub">Health</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="#approach">Approach</a>
+        <a class="nav-link" href="#specialities">Specialities</a>
+        <a class="nav-link" href="#doctors">Doctors</a>
+        <a class="nav-link" href="#fees">Fees</a>
+        <a class="nav-link" href="#visit">Visit</a>
+      </nav>
+      <a class="btn btn-primary btn-small nav-cta" href="#book">Book a consultation</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="menu-toggle-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" aria-label="Menu">
+    <nav class="container mobile-menu-inner" aria-label="Mobile">
+      <a href="#approach">Approach</a>
+      <a href="#specialities">Specialities</a>
+      <a href="#doctors">Doctors</a>
+      <a href="#fees">Fees</a>
+      <a href="#visit">Visit</a>
+      <a href="#book">Book a consultation</a>
+    </nav>
+    <div class="container mobile-menu-foot">
+      <p>12 Riverside Avenue, Kochi</p>
+      <p>+91 484 000 2400</p>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="label hero-label" data-hero>Private clinic in Kochi, Kerala</p>
+          <div class="hero-text">
+            <h1 class="display" id="hero-title" data-hero-lines>
+              <span class="line"><span>Medicine,</span></span>
+              <span class="line"><span>at a human pace.</span></span>
+            </h1>
+            <p class="hero-lead" data-hero>Forty-five minute consultations. Diagnostics under one roof. One doctor who stays with you, from your first visit onward.</p>
+            <div class="hero-actions" data-hero>
+              <a class="btn btn-primary" href="#book">Book a consultation<svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a>
+              <a class="text-link" href="#approach">How a visit works<svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <figure class="media hero-media" data-hero-media>
+          <img src="https://images.unsplash.com/photo-1758448500688-3ababa93fd67?auto=format&fit=crop&q=85&w=2200" srcset="https://images.unsplash.com/photo-1758448500688-3ababa93fd67?auto=format&fit=crop&q=85&w=1000 1000w, https://images.unsplash.com/photo-1758448500688-3ababa93fd67?auto=format&fit=crop&q=85&w=1600 1600w, https://images.unsplash.com/photo-1758448500688-3ababa93fd67?auto=format&fit=crop&q=85&w=2200 2200w, https://images.unsplash.com/photo-1758448500688-3ababa93fd67?auto=format&fit=crop&q=85&w=2800 2800w" sizes="(min-width: 900px) 58vw, 100vw" alt="A calm reception with a marble desk, warm wood panelling, soft pendant lights and two potted plants" fetchpriority="high">
+        </figure>
+      </div>
+      <div class="container">
+        <dl class="hero-facts" data-hero>
+          <div><dt class="label">Today</dt><dd class="open-status" data-open-status>Monday to Saturday, 7 am to 9 pm</dd></div>
+          <div><dt class="label">Address</dt><dd>12 Riverside Avenue, Kochi</dd></div>
+          <div><dt class="label">Telephone</dt><dd>+91 484 000 2400</dd></div>
+          <div><dt class="label">Standards</dt><dd>Accredited care standards and in-house laboratory</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- STATEMENT -->
+    <section class="statement" aria-labelledby="statement-label">
+      <div class="container statement-grid">
+        <p class="label" id="statement-label" data-reveal>Our approach</p>
+        <p class="statement-text" data-reveal>Most clinics fit you into a seven-minute slot. We built Velune around the time good medicine actually takes: time to listen, to explain, and to plan properly.</p>
+        <figure class="statement-media" data-reveal="image">
+          <div class="media"><img src="https://images.unsplash.com/photo-1758965285584-6e7868f5c928?auto=format&fit=crop&q=85&w=1000" srcset="https://images.unsplash.com/photo-1758965285584-6e7868f5c928?auto=format&fit=crop&q=85&w=700 700w, https://images.unsplash.com/photo-1758965285584-6e7868f5c928?auto=format&fit=crop&q=85&w=1000 1000w, https://images.unsplash.com/photo-1758965285584-6e7868f5c928?auto=format&fit=crop&q=85&w=1400 1400w" sizes="(min-width: 900px) 24vw, 70vw" alt="Soft daylight falling in long bands across a pale wall" loading="lazy"></div>
+          <figcaption>Every consulting room opens onto daylight.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="approach" id="approach" aria-labelledby="approach-title">
+      <div class="container">
+        <header class="approach-head">
+          <p class="label" data-reveal>How care works</p>
+          <h2 class="h2" id="approach-title" data-reveal>Four steps. One doctor. No&nbsp;rushing.</h2>
+        </header>
+        <div class="approach-grid">
+          <div class="approach-visual" aria-hidden="true">
+            <div class="approach-frames">
+              <figure class="media approach-frame is-active" data-frame="0"><img src="https://images.unsplash.com/photo-1758691461935-202e2ef6b69f?auto=format&fit=crop&q=85&w=1500" srcset="https://images.unsplash.com/photo-1758691461935-202e2ef6b69f?auto=format&fit=crop&q=85&w=1000 1000w, https://images.unsplash.com/photo-1758691461935-202e2ef6b69f?auto=format&fit=crop&q=85&w=1500 1500w, https://images.unsplash.com/photo-1758691461935-202e2ef6b69f?auto=format&fit=crop&q=85&w=2000 2000w" sizes="46vw" alt="" loading="lazy"></figure>
+              <figure class="media approach-frame" data-frame="1"><img src="https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&q=85&w=1500" srcset="https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&q=85&w=1000 1000w, https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&q=85&w=1500 1500w, https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&q=85&w=2000 2000w" sizes="46vw" alt="" loading="lazy"></figure>
+              <figure class="media approach-frame" data-frame="2"><img src="https://images.unsplash.com/photo-1758691462954-e6fa5005474b?auto=format&fit=crop&q=85&w=1500" srcset="https://images.unsplash.com/photo-1758691462954-e6fa5005474b?auto=format&fit=crop&q=85&w=1000 1000w, https://images.unsplash.com/photo-1758691462954-e6fa5005474b?auto=format&fit=crop&q=85&w=1500 1500w, https://images.unsplash.com/photo-1758691462954-e6fa5005474b?auto=format&fit=crop&q=85&w=2000 2000w" sizes="46vw" alt="" loading="lazy"></figure>
+              <figure class="media approach-frame" data-frame="3"><img src="https://images.unsplash.com/photo-1586324304780-c9a5031a3599?auto=format&fit=crop&q=85&w=1500" srcset="https://images.unsplash.com/photo-1586324304780-c9a5031a3599?auto=format&fit=crop&q=85&w=1000 1000w, https://images.unsplash.com/photo-1586324304780-c9a5031a3599?auto=format&fit=crop&q=85&w=1500 1500w, https://images.unsplash.com/photo-1586324304780-c9a5031a3599?auto=format&fit=crop&q=85&w=2000 2000w" sizes="46vw" alt="" loading="lazy"></figure>
+            </div>
+            <ol class="approach-index">
+              <li class="is-active">Listen</li><li>Measure</li><li>Plan</li><li>Follow through</li>
+            </ol>
+          </div>
+          <ol class="steps">
+            <li class="step is-active" data-step="0">
+              <figure class="media step-media"><img src="https://images.unsplash.com/photo-1758691461935-202e2ef6b69f?auto=format&fit=crop&q=85&w=1200" srcset="https://images.unsplash.com/photo-1758691461935-202e2ef6b69f?auto=format&fit=crop&q=85&w=800 800w, https://images.unsplash.com/photo-1758691461935-202e2ef6b69f?auto=format&fit=crop&q=85&w=1200 1200w, https://images.unsplash.com/photo-1758691461935-202e2ef6b69f?auto=format&fit=crop&q=85&w=1600 1600w" sizes="100vw" alt="A senior doctor talking with a patient across a desk during an appointment" loading="lazy"></figure>
+              <span class="step-num">01</span>
+              <h3 class="h3">Listen</h3>
+              <p>Your first consultation lasts forty-five minutes. Your doctor reads your history before you arrive, then asks about sleep, work, stress and family health as carefully as your symptoms.</p>
+              <p class="step-fact"><strong>45 minutes</strong> for every first consultation</p>
+            </li>
+            <li class="step" data-step="1">
+              <figure class="media step-media"><img src="https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&q=85&w=1200" srcset="https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&q=85&w=800 800w, https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&q=85&w=1200 1200w, https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&q=85&w=1600 1600w" sizes="100vw" alt="A bright laboratory workbench with a microscope and analytical equipment" loading="lazy"></figure>
+              <span class="step-num">02</span>
+              <h3 class="h3">Measure</h3>
+              <p>Blood tests, ECG, echo, ultrasound and genetic screening happen under one roof, usually in the same week. Samples are processed in our own accredited laboratory.</p>
+              <p class="step-fact"><strong>80+ markers</strong> tested in-house</p>
+            </li>
+            <li class="step" data-step="2">
+              <figure class="media step-media"><img src="https://images.unsplash.com/photo-1758691462954-e6fa5005474b?auto=format&fit=crop&q=85&w=1200" srcset="https://images.unsplash.com/photo-1758691462954-e6fa5005474b?auto=format&fit=crop&q=85&w=800 800w, https://images.unsplash.com/photo-1758691462954-e6fa5005474b?auto=format&fit=crop&q=85&w=1200 1200w, https://images.unsplash.com/photo-1758691462954-e6fa5005474b?auto=format&fit=crop&q=85&w=1600 1600w" sizes="100vw" alt="A doctor writing notes while talking a patient through his results" loading="lazy"></figure>
+              <span class="step-num">03</span>
+              <h3 class="h3">Plan</h3>
+              <p>You receive a written care plan in plain language: what we found, what it means for you, and what happens next. Every number on your report is explained.</p>
+              <p class="step-fact"><strong>72 hours</strong> from your tests to your written plan</p>
+            </li>
+            <li class="step" data-step="3">
+              <figure class="media step-media"><img src="https://images.unsplash.com/photo-1586324304780-c9a5031a3599?auto=format&fit=crop&q=85&w=1200" srcset="https://images.unsplash.com/photo-1586324304780-c9a5031a3599?auto=format&fit=crop&q=85&w=800 800w, https://images.unsplash.com/photo-1586324304780-c9a5031a3599?auto=format&fit=crop&q=85&w=1200 1200w, https://images.unsplash.com/photo-1586324304780-c9a5031a3599?auto=format&fit=crop&q=85&w=1600 1600w" sizes="100vw" alt="Two people holding hands, one in a blue shirt and one in a patterned shirt" loading="lazy"></figure>
+              <span class="step-num">04</span>
+              <h3 class="h3">Follow through</h3>
+              <p>A named care coordinator books your follow-ups, sends reminders and answers questions on WhatsApp. You see the same lead doctor at every visit, year after year.</p>
+              <p class="step-fact"><strong>One coordinator</strong> who knows your history</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIALITIES -->
+    <section class="specialities" id="specialities" aria-labelledby="spec-title">
+      <div class="container spec-grid">
+        <header class="spec-head">
+          <p class="label" data-reveal>Specialities</p>
+          <h2 class="h2" id="spec-title" data-reveal>Specialist care, under one&nbsp;roof.</h2>
+          <p class="spec-intro" data-reveal>Every department shares one patient record, so your cardiologist, endocrinologist and physiotherapist work from the same picture of you.</p>
+          <a class="text-link" href="#book" data-reveal>Check availability<svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a>
+        </header>
+        <ul class="spec-list" role="list">
+          <li data-reveal><a class="spec-row" href="#book" data-spec="Cardiology"><span class="spec-name">Cardiology</span><span class="spec-desc">Heart checks, ECG, echo and stress tests, and long-term care for blood pressure, cholesterol and rhythm.</span><span class="spec-wait">Usually within 2 days</span><svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a></li>
+          <li data-reveal><a class="spec-row" href="#book" data-spec="Diabetes and endocrinology"><span class="spec-name">Diabetes and endocrinology</span><span class="spec-desc">Diabetes, thyroid and hormone care, with continuous glucose monitoring when it helps you see patterns.</span><span class="spec-wait">Usually within 3 days</span><svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a></li>
+          <li data-reveal><a class="spec-row" href="#book" data-spec="Preventive health"><span class="spec-name">Preventive health</span><span class="spec-desc">Annual assessments, cancer screening and a clear plan for staying well through the decades ahead.</span><span class="spec-wait">Next day</span><svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a></li>
+          <li data-reveal><a class="spec-row" href="#book" data-spec="Women's health"><span class="spec-name">Women's health</span><span class="spec-desc">Gynaecology, pregnancy care, PCOS, fertility guidance and menopause support.</span><span class="spec-wait">Usually within 2 days</span><svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a></li>
+          <li data-reveal><a class="spec-row" href="#book" data-spec="Child health"><span class="spec-name">Child health</span><span class="spec-desc">Check-ups, vaccinations and growth tracking from birth to eighteen.</span><span class="spec-wait">Same day</span><svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a></li>
+          <li data-reveal><a class="spec-row" href="#book" data-spec="Physiotherapy and sports medicine"><span class="spec-name">Physiotherapy and sports medicine</span><span class="spec-desc">Injury rehabilitation, back and neck pain, and structured return-to-sport programmes.</span><span class="spec-wait">Next day</span><svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a></li>
+          <li data-reveal><a class="spec-row" href="#book" data-spec="Mental wellbeing"><span class="spec-name">Mental wellbeing</span><span class="spec-desc">Counselling and psychiatry in a private, unhurried setting, in person or by video.</span><span class="spec-wait">Usually within 3 days</span><svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a></li>
+          <li data-reveal><a class="spec-row" href="#book" data-spec="Diagnostics and imaging"><span class="spec-name">Diagnostics and imaging</span><span class="spec-desc">In-house laboratory, ultrasound, digital X-ray and DEXA. Most results are ready within 24 hours.</span><span class="spec-wait">Same day</span><svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- THE CLINIC -->
+    <section class="place" id="visit" aria-labelledby="place-title">
+      <figure class="media place-media" data-reveal="image">
+        <img src="https://images.unsplash.com/photo-1760624493013-a852d68854a7?auto=format&fit=crop&q=85&w=2400" srcset="https://images.unsplash.com/photo-1760624493013-a852d68854a7?auto=format&fit=crop&q=85&w=1200 1200w, https://images.unsplash.com/photo-1760624493013-a852d68854a7?auto=format&fit=crop&q=85&w=1800 1800w, https://images.unsplash.com/photo-1760624493013-a852d68854a7?auto=format&fit=crop&q=85&w=2400 2400w, https://images.unsplash.com/photo-1760624493013-a852d68854a7?auto=format&fit=crop&q=85&w=3000 3000w" sizes="100vw" alt="A quiet courtyard of white gravel with a single tree, framed by a modern building" loading="lazy">
+      </figure>
+      <div class="container place-grid">
+        <p class="label" data-reveal>The clinic</p>
+        <h2 class="h2" id="place-title" data-reveal>Designed for recovery, not for waiting.</h2>
+        <div class="place-body">
+          <p data-reveal>The building is arranged around a planted courtyard, so every consulting room has daylight and air. There are no crowded waiting halls. You are shown to a private room, and your doctor comes to you.</p>
+          <ul class="place-list" role="list">
+            <li data-reveal><span>Daylit consulting rooms</span><span>Facing the courtyard</span></li>
+            <li data-reveal><span>A private room for every patient</span><span>From arrival to checkout</span></li>
+            <li data-reveal><span>Step-free throughout</span><span>Free valet parking</span></li>
+            <li data-reveal><span>Close to the metro</span><span>Six minutes by car</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCTORS -->
+    <section class="doctors" id="doctors" aria-labelledby="doctors-title">
+      <div class="container doctors-grid">
+        <figure class="media doctors-media" data-reveal="image">
+          <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&q=85&w=1400" srcset="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&q=85&w=900 900w, https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&q=85&w=1400 1400w, https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&q=85&w=1900 1900w" sizes="(min-width: 900px) 40vw, 100vw" alt="Close detail of a doctor in a white coat with a stethoscope" loading="lazy">
+        </figure>
+        <div class="doctors-body">
+          <p class="label" data-reveal>Doctors</p>
+          <h2 class="h2" id="doctors-title" data-reveal>Doctors who know your name.</h2>
+          <p class="doctors-intro" data-reveal>Every patient has a named lead doctor. Specialists join when you need them, and everyone writes in the same record, so you never repeat your story.</p>
+          <ul class="doctor-list" role="list">
+            <li class="doctor" data-reveal>
+              <div><h3 class="doctor-name">Dr. Meera K.</h3><p class="doctor-role">Consultant Cardiologist</p></div>
+              <p class="doctor-meta">MD, DM (Cardiology). Fourteen years in practice. Speaks Malayalam, English and Hindi.</p>
+              <p class="doctor-next" data-next="1">Next available tomorrow</p>
+            </li>
+            <li class="doctor" data-reveal>
+              <div><h3 class="doctor-name">Dr. Arun S.</h3><p class="doctor-role">Endocrinologist</p></div>
+              <p class="doctor-meta">MD, DM (Endocrinology). Eleven years in practice. Speaks Malayalam, English and Tamil.</p>
+              <p class="doctor-next" data-next="0">Next available today</p>
+            </li>
+            <li class="doctor" data-reveal>
+              <div><h3 class="doctor-name">Dr. Leena R.</h3><p class="doctor-role">Obstetrician and Gynaecologist</p></div>
+              <p class="doctor-meta">MS, DNB (Obstetrics and Gynaecology). Twelve years in practice. Speaks Malayalam, English and Arabic.</p>
+              <p class="doctor-next" data-next="2">Next available this week</p>
+            </li>
+            <li class="doctor" data-reveal>
+              <div><h3 class="doctor-name">Dr. Vivek P.</h3><p class="doctor-role">Sports and Musculoskeletal Physician</p></div>
+              <p class="doctor-meta">MBBS, MSc Sports Medicine. Nine years in practice. Speaks Malayalam, English and Hindi.</p>
+              <p class="doctor-next" data-next="1">Next available tomorrow</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEES -->
+    <section class="fees" id="fees" aria-labelledby="fees-title">
+      <div class="container">
+        <header class="fees-head">
+          <div>
+            <p class="label" data-reveal>Fees</p>
+            <h2 class="h2" id="fees-title" data-reveal>Clear prices, before you book.</h2>
+          </div>
+          <p class="fees-note" data-reveal>Every package includes a doctor's review and a written report in plain language. Cashless billing is available with most major insurers for eligible tests.</p>
+        </header>
+        <div class="fees-table">
+          <article class="fee" data-reveal>
+            <h3 class="fee-name">Essential health check</h3>
+            <p class="fee-for">For adults under 40 with no known conditions</p>
+            <p class="fee-price"><span class="fee-currency">₹</span>4,900</p>
+            <p class="fee-time">About two hours at the clinic</p>
+            <ul class="fee-list" role="list">
+              <li>Forty-five minute physician consultation</li>
+              <li>40+ blood markers, including lipids, HbA1c, thyroid, liver, kidney, vitamin D and B12</li>
+              <li>Resting ECG and blood pressure</li>
+              <li>Body composition analysis</li>
+              <li>Written report within 72 hours</li>
+            </ul>
+            <a class="btn btn-secondary" href="#book" data-spec="Preventive health">Book this check</a>
+          </article>
+          <article class="fee fee-featured" data-reveal>
+            <p class="label fee-tag">Recommended over 40</p>
+            <h3 class="fee-name">Executive assessment</h3>
+            <p class="fee-for">For adults over 40, or with a family history of heart disease or diabetes</p>
+            <p class="fee-price"><span class="fee-currency">₹</span>18,500</p>
+            <p class="fee-time">Half a day, reviewed with you the same afternoon</p>
+            <ul class="fee-list" role="list">
+              <li>Everything in the Essential health check</li>
+              <li>2D echo and treadmill stress test</li>
+              <li>Abdominal ultrasound and chest X-ray</li>
+              <li>DEXA bone density and lung function</li>
+              <li>Eye and dental screening</li>
+              <li>Same-day review with a specialist</li>
+            </ul>
+            <a class="btn btn-primary" href="#book" data-spec="Preventive health">Book this assessment</a>
+          </article>
+          <article class="fee" data-reveal>
+            <h3 class="fee-name">Velune membership</h3>
+            <p class="fee-for">Ongoing care for you, or for your whole family</p>
+            <p class="fee-price"><span class="fee-currency">₹</span>46,000<span class="fee-per">a year</span></p>
+            <p class="fee-time">Or ₹4,000 a month</p>
+            <ul class="fee-list" role="list">
+              <li>Unlimited physician and video consultations</li>
+              <li>One Executive assessment every year</li>
+              <li>A named care coordinator on WhatsApp</li>
+              <li>A doctor on call, day and night</li>
+              <li>15% off diagnostics and specialist visits</li>
+            </ul>
+            <a class="btn btn-secondary" href="#book" data-spec="General consultation">Ask about membership</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="booking" id="book" aria-labelledby="book-title">
+      <div class="container booking-grid">
+        <div class="booking-copy">
+          <p class="label" data-reveal>Appointments</p>
+          <h2 class="h2" id="book-title" data-reveal>Book in under two minutes.</h2>
+          <p class="booking-intro" data-reveal>Choose a speciality and a time. You get an SMS confirmation straight away, and you can switch between an in-person and a video visit up to two hours before.</p>
+          <dl class="booking-info" data-reveal>
+            <div><dt>Today</dt><dd data-open-status>Monday to Saturday, 7 am to 9 pm</dd></div>
+            <div><dt>Address</dt><dd>12 Riverside Avenue, Kochi, Kerala</dd></div>
+            <div><dt>Telephone</dt><dd>+91 484 000 2400</dd></div>
+            <div><dt>Hours</dt><dd>Monday to Saturday, 7 am to 9 pm<br>Sunday, 8 am to 2 pm</dd></div>
+          </dl>
+          <p class="emergency" data-reveal><strong>In an emergency</strong>, call 112, or 108 for an ambulance. Velune does not run an emergency department.</p>
+        </div>
+
+        <div class="booking-panel" data-reveal>
+          <div class="booker" id="booker">
+            <ol class="booker-steps" id="booker-steps" aria-label="Booking steps">
+              <li class="is-current" aria-current="step"><button type="button" data-goto="1"><span>01</span>Visit</button></li>
+              <li><button type="button" data-goto="2"><span>02</span>Date and time</button></li>
+              <li><button type="button" data-goto="3"><span>03</span>Your details</button></li>
+            </ol>
+            <div class="booker-progress" aria-hidden="true"><span id="booker-progress"></span></div>
+
+            <form class="booker-form" id="booking-form" novalidate>
+              <section class="booker-step is-active" data-step="1" aria-labelledby="bs1-title">
+                <h3 class="booker-title" id="bs1-title" tabindex="-1">How would you like to be seen?</h3>
+                <div class="visit-options" role="radiogroup" aria-label="Visit type">
+                  <label class="visit-option">
+                    <input type="radio" name="visit" value="In person" checked>
+                    <svg class="visit-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V10.5a8 8 0 0 1 16 0V21"/><path d="M2 21h20M12 21v-6"/></svg>
+                    <span class="visit-name">In person</span>
+                    <span class="visit-desc">At the clinic, with free valet parking.</span>
+                    <span class="radio-dot" aria-hidden="true"></span>
+                  </label>
+                  <label class="visit-option">
+                    <input type="radio" name="visit" value="Video">
+                    <svg class="visit-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="13" height="12" rx="1.5"/><path d="M15.5 10.5l6-3.5v10l-6-3.5"/></svg>
+                    <span class="visit-name">Video</span>
+                    <span class="visit-desc">From home. A secure link arrives by SMS fifteen minutes before.</span>
+                    <span class="radio-dot" aria-hidden="true"></span>
+                  </label>
+                </div>
+                <fieldset class="spec-options">
+                  <legend class="booker-sub">Speciality</legend>
+                  <div class="spec-option-grid">
+                  <label class="spec-option"><input type="radio" name="spec" value="General consultation" checked><span>General consultation</span><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5"/></svg></label>
+                  <label class="spec-option"><input type="radio" name="spec" value="Cardiology"><span>Cardiology</span><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5"/></svg></label>
+                  <label class="spec-option"><input type="radio" name="spec" value="Diabetes and endocrinology"><span>Diabetes and endocrinology</span><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5"/></svg></label>
+                  <label class="spec-option"><input type="radio" name="spec" value="Preventive health"><span>Preventive health</span><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5"/></svg></label>
+                  <label class="spec-option"><input type="radio" name="spec" value="Women's health"><span>Women's health</span><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5"/></svg></label>
+                  <label class="spec-option"><input type="radio" name="spec" value="Child health"><span>Child health</span><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5"/></svg></label>
+                  <label class="spec-option"><input type="radio" name="spec" value="Physiotherapy and sports medicine"><span>Physiotherapy and sports medicine</span><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5"/></svg></label>
+                  <label class="spec-option"><input type="radio" name="spec" value="Mental wellbeing"><span>Mental wellbeing</span><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5"/></svg></label>
+                  <label class="spec-option"><input type="radio" name="spec" value="Diagnostics and imaging"><span>Diagnostics and imaging</span><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5"/></svg></label>
+                  </div>
+                </fieldset>
+              </section>
+
+              <section class="booker-step" data-step="2" aria-labelledby="bs2-title">
+                <div class="booker-head">
+                  <h3 class="booker-title" id="bs2-title" tabindex="-1">Choose a day and time</h3>
+                  <p class="booker-doctor" id="booker-doctor">With the first available physician</p>
+                </div>
+                <div class="date-strip-wrap">
+                  <button type="button" class="strip-nav" id="strip-prev" aria-label="Show earlier dates"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg></button>
+                  <div class="date-strip" id="date-strip" role="radiogroup" aria-label="Day"></div>
+                  <button type="button" class="strip-nav" id="strip-next" aria-label="Show later dates"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>
+                </div>
+                <div class="time-groups" id="time-groups" role="radiogroup" aria-label="Time"></div>
+                <p class="booker-note">All times are India Standard Time.</p>
+              </section>
+
+              <section class="booker-step" data-step="3" aria-labelledby="bs3-title">
+                <h3 class="booker-title" id="bs3-title" tabindex="-1">Your details</h3>
+                <div class="detail-fields">
+                  <div class="field">
+                    <label class="field-label" for="f-name">Full name</label>
+                    <input class="input" type="text" id="f-name" name="name" autocomplete="name" aria-describedby="err-name">
+                    <p class="field-error" id="err-name"></p>
+                  </div>
+                  <div class="field">
+                    <label class="field-label" for="f-phone">Mobile number</label>
+                    <div class="phone-input"><span>+91</span><input type="tel" id="f-phone" name="phone" autocomplete="tel-national" inputmode="numeric" placeholder="98470 12345" aria-describedby="err-phone"></div>
+                    <p class="field-error" id="err-phone"></p>
+                  </div>
+                  <div class="field field-wide">
+                    <label class="field-label" for="f-note">What would you like to discuss? <span class="field-hint">Optional</span></label>
+                    <textarea class="input textarea" id="f-note" name="note" rows="3" placeholder="Follow-up on my blood pressure readings"></textarea>
+                  </div>
+                </div>
+                <p class="booker-note">We use your number only to confirm and remind you about this visit.</p>
+              </section>
+
+              <p class="form-error" id="form-error" role="alert"></p>
+
+              <div class="booker-foot">
+                <div class="booker-summary" aria-live="polite">
+                  <span class="label">Your visit</span>
+                  <strong id="sum-main">In-person visit, General consultation</strong>
+                  <span id="sum-time">Choose a day and time</span>
+                </div>
+                <div class="booker-actions">
+                  <button type="button" class="booker-back" id="booker-back" hidden>Back</button>
+                  <button type="button" class="btn btn-primary" id="booker-next">Continue<svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></button>
+                </div>
+              </div>
+            </form>
+
+            <div class="booking-done" id="booking-done" hidden tabindex="-1">
+              <div class="done-head">
+                <svg class="done-mark" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-15"/></svg>
+                <div><p class="label">Appointment requested</p><h3 class="done-title">See you soon, <span id="done-name"></span>.</h3></div>
+              </div>
+              <dl class="done-list" id="done-list"></dl>
+              <p class="booker-note">This is a concept website, so no appointment was made and no message was sent.</p>
+              <button class="text-link" type="button" id="booking-again">Book another visit<svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <header class="faq-head">
+          <p class="label" data-reveal>Questions</p>
+          <h2 class="h2" id="faq-title" data-reveal>Before your first visit.</h2>
+          <p class="faq-intro" data-reveal>Can't find what you need? Call +91 484 000 2400 and a care coordinator will answer.</p>
+        </header>
+        <div class="faq-list">
+          <details data-reveal>
+            <summary>Do you accept health insurance?</summary>
+            <div class="faq-body"><p>Yes. We offer cashless billing with most major insurers and TPAs for eligible tests and procedures. For consultations, our billing desk prepares your reimbursement paperwork before you leave.</p></div>
+          </details>
+          <details data-reveal>
+            <summary>Do I need to fast before a health check?</summary>
+            <div class="faq-body"><p>For tests that include blood sugar and cholesterol, fast for 8 to 12 hours. Water is fine, and keep taking your regular medicines unless your doctor has told you otherwise.</p></div>
+          </details>
+          <details data-reveal>
+            <summary>Can I see a doctor by video?</summary>
+            <div class="faq-body"><p>Yes. Follow-ups and many first consultations work well by video. Choose Video when you book, and you'll receive a secure link by SMS fifteen minutes before your appointment.</p></div>
+          </details>
+          <details data-reveal>
+            <summary>What should I bring to my first appointment?</summary>
+            <div class="faq-body"><p>Bring previous reports and prescriptions, a list of the medicines and supplements you take, and your insurance card if you have one. Please arrive ten minutes early to finish registration.</p></div>
+          </details>
+          <details data-reveal>
+            <summary>Can someone come with me?</summary>
+            <div class="faq-body"><p>Of course. A family member or friend is welcome in your consultation. For video visits, they can join from another phone using the same link.</p></div>
+          </details>
+          <details data-reveal>
+            <summary>How do I receive my reports?</summary>
+            <div class="faq-body"><p>Reports appear in the patient app and are emailed to you as a PDF. Your doctor walks you through them, in person or by video.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="container closing-grid">
+        <div class="closing-copy">
+          <h2 class="h2" id="closing-title" data-reveal>Start with one unhurried conversation.</h2>
+          <p class="closing-lead" data-reveal>Forty-five minutes with a doctor who will still be your doctor next year.</p>
+          <div class="closing-actions" data-reveal>
+            <a class="btn btn-light" href="#book">Book a consultation<svg class="arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a>
+            <a class="btn btn-outline-light" href="tel:+914840002400">Call +91 484 000 2400</a>
+          </div>
+        </div>
+        <figure class="closing-media" data-reveal="image">
+          <div class="media"><img src="https://images.unsplash.com/photo-1768317476841-de860890ae52?auto=format&fit=crop&q=85&w=2200" srcset="https://images.unsplash.com/photo-1768317476841-de860890ae52?auto=format&fit=crop&q=85&w=1000 1000w, https://images.unsplash.com/photo-1768317476841-de860890ae52?auto=format&fit=crop&q=85&w=1600 1600w, https://images.unsplash.com/photo-1768317476841-de860890ae52?auto=format&fit=crop&q=85&w=2200 2200w, https://images.unsplash.com/photo-1768317476841-de860890ae52?auto=format&fit=crop&q=85&w=2800 2800w" sizes="(min-width: 900px) 52vw, 100vw" alt="A wooden canoe resting at the edge of still backwaters under leaning coconut palms" loading="lazy"></div>
+          <figcaption>The Kerala backwaters, half an hour from the clinic.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo logo-light" href="#top" aria-label="Velune Health, home">
+          <svg class="logo-mark" viewBox="0 0 24 30" aria-hidden="true"><path d="M5 27V12a7 7 0 0 1 14 0v15"/><path d="M1 27h22"/><path d="M12 27v-7"/></svg>
+          <span class="logo-word">Velune</span>
+          <span class="logo-sub">Health</span>
+        </a>
+        <p>Preventive and specialist care in Kochi, built around time, clarity and one doctor who knows you.</p>
+      </div>
+      <div>
+        <h3 class="footer-title">Visit</h3>
+        <p>12 Riverside Avenue<br>Kochi, Kerala</p>
+      </div>
+      <div>
+        <h3 class="footer-title">Contact</h3>
+        <p>+91 484 000 2400<br>hello@velune.example</p>
+      </div>
+      <div>
+        <h3 class="footer-title">Hours</h3>
+        <p>Monday to Saturday<br>7 am to 9 pm<br>Sunday, 8 am to 2 pm</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <h3 class="footer-title">Explore</h3>
+        <a href="#approach">Approach</a>
+        <a href="#specialities">Specialities</a>
+        <a href="#doctors">Doctors</a>
+        <a href="#fees">Fees</a>
+        <a href="#faq">Questions</a>
+      </nav>
+    </div>
+    <div class="container footer-base">
+      <p>Concept website. Velune Health is a fictional clinic, and all names, doctors, addresses, phone numbers, prices and figures are placeholder content. Photography from Unsplash by Aalo Lens, MAK, Vitaly Gariev, Trnava University, Nani Chavez, Declan Sun, JESHOOTS.COM and Amal K Raju.</p>
+      <p>Designed and developed by <a href="https://github.com/mohamedsabith">Mohamed Sabith</a>, <a href="https://linkedin.com/in/mohamed-sabith-mp">LinkedIn</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

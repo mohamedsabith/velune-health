@@ -285,6 +285,15 @@
     $('#booker-doctor').textContent = `With ${doctorFor(specValue()).replace(/^The f/, 'the f')}`;
   };
 
+  // If the top of the booking panel has scrolled up under the fixed header
+  // (common on phones after a long step), bring it back into view.
+  const revealBooker = () => {
+    const bar = $('#site-nav');
+    const navH = bar ? bar.getBoundingClientRect().height : 0;
+    if ($('#booker').getBoundingClientRect().top < navH + 8) {
+      $('#booker').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    }
+  };
   const goTo = (step, { focus = true } = {}) => {
     const back = step < state.step;
     state.step = step;
@@ -310,8 +319,7 @@
       if (sel) strip.scrollLeft = Math.max(0, sel.closest('.day-option').offsetLeft - strip.offsetLeft - 8);
     }
     if (focus) $('.booker-title', stepPanels[step - 1]).focus({ preventScroll: true });
-    const panelTop = $('#booker').getBoundingClientRect().top;
-    if (focus && panelTop < 0) $('#booker').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    if (focus) revealBooker();
   };
 
   const setFieldError = (input, errEl, message) => {
@@ -337,6 +345,7 @@
     $('.booker-progress').hidden = true;
     done.hidden = false;
     done.focus({ preventScroll: true });
+    revealBooker();
   };
 
   // Plain button + Enter key handling, so the flow also works inside sandboxed

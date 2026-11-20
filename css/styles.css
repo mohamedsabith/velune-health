@@ -201,7 +201,7 @@ h1, h2, h3 { color: var(--ink); font-family: var(--serif); font-weight: 400; tex
 .mobile-menu {
   position: fixed; inset: 0; z-index: 40; display: flex; flex-direction: column; justify-content: space-between;
   padding: calc(var(--nav-h) + var(--s-7)) 0 var(--s-6);
-  background: var(--bg); visibility: hidden; opacity: 0;
+  background: var(--bg); visibility: hidden; opacity: 0; overflow-y: auto; overscroll-behavior: contain;
   transition: opacity 0.4s var(--ease), visibility 0s linear 0.4s;
 }
 .menu-open .mobile-menu { visibility: visible; opacity: 1; transition: opacity 0.4s var(--ease); }
@@ -354,7 +354,7 @@ h1, h2, h3 { color: var(--ink); font-family: var(--serif); font-weight: 400; tex
 .fee-featured .fee-list { border-top-color: rgba(40, 89, 79, 0.18); }
 .fee-list li { position: relative; padding-left: var(--s-5); }
 .fee-list li::before { content: ""; position: absolute; left: 0; top: 0.8em; width: 10px; height: 1px; background: var(--brand); }
-.fee .btn { margin-top: auto; align-self: flex-start; }
+.fee .btn { margin-top: auto; align-self: flex-start; max-width: 100%; white-space: normal; text-align: center; line-height: 1.3; padding-block: var(--s-3); }
 
 /* ---------- Booking ---------- */
 .booking { padding-block: var(--section); background: var(--bg-alt); }
@@ -369,12 +369,12 @@ h1, h2, h3 { color: var(--ink); font-family: var(--serif); font-weight: 400; tex
 .booking-panel { grid-column: 6 / -1; padding: clamp(var(--s-5), 3.4vw, var(--s-7)); background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); }
 
 /* steps header */
-.booker-steps { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-6); margin-bottom: var(--s-4); }
+.booker-steps { display: flex; flex-wrap: wrap; gap: 0 var(--s-6); margin-bottom: var(--s-2); }
 .booker-steps button {
-  display: inline-flex; align-items: baseline; gap: var(--s-2); padding: var(--s-1) 0; border: 0; background: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: var(--s-2); min-height: 44px; padding: 0; border: 0; background: none; cursor: pointer;
   font-size: 0.8125rem; font-weight: 500; color: var(--muted); transition: color 0.3s;
 }
-.booker-steps button span { font-size: 0.6875rem; letter-spacing: 0.12em; font-variant-numeric: tabular-nums; }
+.booker-steps .step-num { font-size: 0.6875rem; letter-spacing: 0.12em; font-variant-numeric: tabular-nums; }
 .booker-steps li.is-current button { color: var(--ink); }
 .booker-steps li.is-done button { color: var(--brand); }
 .booker-steps li.is-done button:hover { color: var(--brand-deep); }
@@ -464,7 +464,7 @@ h1, h2, h3 { color: var(--ink); font-family: var(--serif); font-weight: 400; tex
 
 /* details */
 .detail-fields { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-5) var(--s-4); }
-.field { display: grid; gap: var(--s-2); min-width: 0; align-content: start; }
+.field { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-2); min-width: 0; align-content: start; }
 .field-wide { grid-column: 1 / -1; }
 .field-label { font-size: 0.8125rem; font-weight: 500; color: var(--ink); }
 .field-hint { margin-left: var(--s-2); font-weight: 400; color: var(--muted); }
@@ -478,7 +478,7 @@ h1, h2, h3 { color: var(--ink); font-family: var(--serif); font-weight: 400; tex
 .phone-input { display: flex; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); transition: border-color 0.3s, background-color 0.3s; }
 .phone-input:focus-within { border-color: var(--brand); background: var(--white); }
 .phone-input span { display: flex; align-items: center; padding: 0 var(--s-3) 0 var(--s-4); border-right: 1px solid var(--line); font-size: 0.9375rem; color: var(--muted); }
-.phone-input input { flex: 1; min-width: 0; min-height: 50px; padding: 0 var(--s-4); border: 0; background: transparent; font-size: 0.9375rem; color: var(--ink); }
+.phone-input input { flex: 1; width: 0; min-width: 0; min-height: 50px; padding: 0 var(--s-4); border: 0; background: transparent; font-size: 0.9375rem; color: var(--ink); }
 .phone-input input:focus { outline: none; }
 .input[aria-invalid="true"], .phone-input:has(input[aria-invalid="true"]) { border-color: #8A3B2E; }
 .field-error { font-size: 0.8125rem; color: #8A3B2E; }
@@ -498,7 +498,7 @@ h1, h2, h3 { color: var(--ink); font-family: var(--serif); font-weight: 400; tex
 
 /* confirmation */
 .booking-done { display: grid; gap: var(--s-5); animation: step-in 0.6s var(--ease); }
-.booking-done[hidden] { display: none; }
+.booking-done[hidden], .booker-steps[hidden], .booker-progress[hidden] { display: none; }
 .booking-done:focus { outline: none; }
 .done-head { display: flex; align-items: center; gap: var(--s-5); }
 .done-mark { width: 56px; height: 56px; flex: none; fill: none; stroke: var(--brand); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
@@ -554,10 +554,10 @@ h1, h2, h3 { color: var(--ink); font-family: var(--serif); font-weight: 400; tex
 .footer-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--s-5); row-gap: var(--s-7); padding-bottom: var(--s-8); }
 .footer-brand { grid-column: 1 / span 4; display: grid; gap: var(--s-4); align-content: start; }
 .footer-brand p { max-width: 20rem; }
-.footer-grid > div:nth-child(2) { grid-column: 6 / span 2; }
-.footer-grid > div:nth-child(3) { grid-column: 8 / span 2; }
-.footer-grid > div:nth-child(4) { grid-column: 10 / span 2; }
-.footer-nav { grid-column: 12 / span 1; display: grid; gap: var(--s-1); align-content: start; }
+.footer-grid > div:nth-child(2) { grid-column: 5 / span 2; }
+.footer-grid > div:nth-child(3) { grid-column: 7 / span 2; }
+.footer-grid > div:nth-child(4) { grid-column: 9 / span 2; }
+.footer-nav { grid-column: 11 / span 2; display: grid; gap: var(--s-1); align-content: start; }
 .footer-title { margin-bottom: var(--s-3); font-family: var(--sans); font-size: var(--t-label); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--white); }
 .logo-light .logo-word { color: var(--bg); }
 .logo-light .logo-mark { stroke: var(--brand-light); }
@@ -566,7 +566,7 @@ h1, h2, h3 { color: var(--ink); font-family: var(--serif); font-weight: 400; tex
 .footer-nav a:hover { background-size: 100% 1px; }
 .footer-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-4) var(--s-7); padding-block: var(--s-5) var(--s-6); border-top: 1px solid var(--line-dark); font-size: 0.8125rem; }
 .footer-base p { max-width: 46rem; }
-.footer-base a { color: var(--white); text-underline-offset: 3px; }
+.footer-base a { color: var(--white); text-underline-offset: 3px; white-space: nowrap; }
 .footer-base a:hover { color: var(--white); }
 
 /* ---------- Opening sequence ----------
@@ -702,15 +702,29 @@ h1, h2, h3 { color: var(--ink); font-family: var(--serif); font-weight: 400; tex
 }
 
 @media (max-width: 1040px) {
+  .booking-copy, .booking-panel { grid-column: 1 / -1; }
+  .booking-copy { position: static; max-width: 40rem; }
+  .booking-panel { margin-top: var(--s-7); }
+  .place-grid > .label { grid-column: 1 / -1; padding-top: 0; }
+  .place-grid > .h2 { grid-column: 1 / span 6; }
+  .place-body { grid-column: 7 / -1; }
+  .fees-table { grid-template-columns: 1fr; }
+  .fee + .fee { border-left: 0; border-top: 1px solid var(--line); }
+  .fee { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--s-6); align-items: start; padding: var(--s-6) var(--s-5); }
+  .fee > :not(.fee-list):not(.btn) { grid-column: 1; }
+  .fee-list { grid-column: 2; grid-row: 1 / span 6; margin: 0; padding-top: 0; border-top: 0; }
+  .fee .btn { grid-column: 1; margin-top: var(--s-4); }
+  .fee-for { min-height: 0; }
   .nav-links, .nav-cta { display: none; }
   .menu-toggle { display: inline-flex; }
   .doctor { grid-template-columns: 1fr; }
   .doctor-next { grid-column: 1; grid-row: auto; text-align: left; }
-  .fee { padding: var(--s-5); }
 }
 
 @media (max-width: 900px) {
   :root { --nav-h: 68px; }
+  .hero-grid, .statement-grid, .approach-grid, .spec-grid, .place-grid, .doctors-grid, .fees-head,
+  .booking-grid, .faq-grid, .closing-grid, .footer-grid { column-gap: var(--s-3); }
   .hero { padding-top: calc(var(--nav-h) + var(--s-6)); }
   .hero-grid { row-gap: var(--s-7); }
   .hero-copy { grid-column: 1 / -1; gap: var(--s-6); }
@@ -743,10 +757,6 @@ h1, h2, h3 { color: var(--ink); font-family: var(--serif); font-weight: 400; tex
 
   .fees-head > div, .fees-note { grid-column: 1 / -1; }
   .fees-note { margin-top: var(--s-4); }
-  .fees-table { grid-template-columns: 1fr; }
-  .fee + .fee { border-left: 0; border-top: 1px solid var(--line); }
-  .fee { padding: var(--s-6) var(--s-5); }
-  .fee-for { min-height: 0; }
 
   .booking-copy, .booking-panel { grid-column: 1 / -1; }
   .booking-copy { position: static; }
@@ -782,4 +792,58 @@ h1, h2, h3 { color: var(--ink); font-family: var(--serif); font-weight: 400; tex
 @media (max-width: 360px) {
   :root { --t-display: 2.6rem; }
   .logo-sub { display: none; }
+}
+
+/* Short screens (phones held sideways, smart displays): compact two-column menu that fits */
+@media (max-width: 1040px) and (max-height: 640px) {
+  .mobile-menu { justify-content: flex-start; gap: var(--s-5); padding: calc(var(--nav-h) + var(--s-4)) 0 var(--s-5); }
+  .mobile-menu-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--s-6); }
+  .mobile-menu-inner a { padding: var(--s-2) 0; font-size: clamp(1.5rem, 4.5vh, 2rem); }
+  .mobile-menu-foot { grid-auto-flow: column; justify-content: start; gap: var(--s-6); }
+}
+@media (max-width: 1040px) and (max-height: 640px) and (max-width: 480px) {
+  .mobile-menu-inner { grid-template-columns: 1fr; }
+}
+
+/* Phones: these come last on purpose so the tablet rules above never override them */
+@media (max-width: 560px) {
+  .fee { display: flex; }
+  .fee-list { margin: var(--s-4) 0 var(--s-5); padding-top: var(--s-4); border-top: 1px solid var(--line); }
+  .fee .btn { align-self: stretch; margin-top: auto; }
+  .done-list div { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (max-width: 900px) {
+  .place-grid > .h2, .place-body { grid-column: 1 / -1; }
+}
+@media (max-width: 360px) {
+  .visit-option { grid-template-columns: 1fr; padding: var(--s-4); padding-right: var(--s-4); }
+  .visit-icon { grid-row: auto; margin-bottom: var(--s-1); }
+  .visit-name, .visit-desc { grid-column: 1; }
+  .radio-dot { top: var(--s-4); right: var(--s-4); margin-top: 0; }
+  .booker-steps { column-gap: var(--s-3); }
+  .booker-steps button { font-size: 0.75rem; gap: 6px; }
+}
+
+/* Step tabs read "Visit · Date · Details" on narrow phones so they stay on one line */
+.step-short { display: none; }
+@media (max-width: 400px) {
+  .step-long { display: none; }
+  .step-short { display: inline; }
+}
+
+/* Phones held sideways: keep the headline, intro and button on the first screen */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { padding-top: calc(var(--nav-h) + var(--s-4)); }
+  .hero .display { font-size: clamp(2.25rem, 11vh, 3.25rem); }
+  .hero-copy { gap: var(--s-4); }
+}
+
+/* Large monitors: scale the whole layout up a step so it doesn't look small */
+@media (min-width: 1800px) {
+  html { font-size: 106.25%; }
+  :root { --max: 1500px; }
+}
+@media (min-width: 2400px) {
+  html { font-size: 112.5%; }
+  :root { --max: 1640px; }
 }

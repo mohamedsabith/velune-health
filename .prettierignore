@@ -1,0 +1,12 @@
+.next
+out
+build
+coverage
+node_modules
+playwright-report
+test-results
+public
+src/fonts
+src/assets
+package-lock.json
+next-env.d.ts

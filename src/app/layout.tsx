@@ -17,6 +17,8 @@ import { hospitalJsonLd, websiteJsonLd } from '@/lib/seo/jsonld';
 import { figtree, newsreader } from './fonts';
 import './globals.css';
 
+const WEBMCP_TOKEN = process.env.NEXT_PUBLIC_WEBMCP_TOKEN;
+
 export const metadata: Metadata = {
   metadataBase: new URL(env.siteUrl),
   title: { default: pages.home.title, template: `%s | ${site.name}` },
@@ -33,7 +35,6 @@ export const metadata: Metadata = {
       }
     : { index: false, follow: false },
   openGraph: { type: 'website', siteName: site.name, locale: 'en_IN' },
-  other: process.env.NEXT_PUBLIC_WEBMCP_TOKEN ? { 'origin-trial': process.env.NEXT_PUBLIC_WEBMCP_TOKEN } : {},
 };
 
 export const viewport: Viewport = {
@@ -52,6 +53,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Must run before first paint: decides whether the opening shows. Same-origin, so script-src 'self' allows it. */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script src="/scripts/intro-gate.js" />
+        {/* WebMCP origin trial. Chrome only reads tokens from http-equiv, never from name="origin-trial". */}
+        {WEBMCP_TOKEN ? <meta httpEquiv="origin-trial" content={WEBMCP_TOKEN} /> : null}
       </head>
       <body>
         <a className="skip" href="#main">

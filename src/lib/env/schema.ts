@@ -28,22 +28,11 @@ export const envSchema = z
     /** `auto` = index production only; `on`/`off` force the behaviour. */
     SITE_INDEXING: optional(z.enum(['auto', 'on', 'off'])),
 
-    /** Optional shared rate-limit store (Upstash free tier works). */
-    UPSTASH_REDIS_REST_URL: optional(z.url({ protocol: /^https$/ })),
-    UPSTASH_REDIS_REST_TOKEN: optional(z.string().min(20)),
-
     /** Optional appointment integration. Without it, booking runs in clearly labelled demonstration mode. */
     BOOKING_WEBHOOK_URL: optional(z.url({ protocol: /^https$/ })),
     BOOKING_WEBHOOK_SECRET: optional(z.string().min(32)),
   })
   .superRefine((env, ctx) => {
-    if (Boolean(env.UPSTASH_REDIS_REST_URL) !== Boolean(env.UPSTASH_REDIS_REST_TOKEN)) {
-      ctx.addIssue({
-        code: 'custom',
-        path: ['UPSTASH_REDIS_REST_TOKEN'],
-        message: 'UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN must be set together.',
-      });
-    }
     if (env.BOOKING_WEBHOOK_URL && !env.BOOKING_WEBHOOK_SECRET) {
       ctx.addIssue({
         code: 'custom',
@@ -61,7 +50,6 @@ export interface ResolvedEnv {
   siteUrl: string;
   /** Whether search engines and AI crawlers should index this deployment. */
   indexable: boolean;
-  rateLimitStore: 'upstash' | 'memory';
   bookingMode: 'webhook' | 'demo';
 }
 
@@ -89,7 +77,6 @@ export function resolveEnv(source: Record<string, string | undefined>): Resolved
     raw,
     siteUrl,
     indexable,
-    rateLimitStore: raw.UPSTASH_REDIS_REST_URL ? 'upstash' : 'memory',
     bookingMode: raw.BOOKING_WEBHOOK_URL ? 'webhook' : 'demo',
   };
 }

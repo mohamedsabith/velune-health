@@ -1,10 +1,7 @@
 /**
- * Fixed-window rate limiting.
- *
- * - `memory`: per-instance Map. On serverless hosts each instance has its own
- *   window, so this is a best-effort guard rather than a hard global limit.
- * - `upstash`: shared counter via the Upstash Redis REST API (works on the free tier),
- *   no SDK dependency. Falls back to memory if Redis is unreachable.
+ * Fixed-window rate limiting kept in memory. On serverless hosts each instance has
+ * its own window, so this is a best-effort guard against form spam rather than a
+ * hard global limit. No external service is needed.
  */
 
 export interface RateLimitResult {
@@ -52,44 +49,6 @@ export function createMemoryRateLimiter(
         remaining: Math.max(0, limit - bucket.count),
         resetAt: bucket.resetAt,
       };
-    },
-  };
-}
-
-export function createUpstashRateLimiter(
-  options: RateLimitOptions & { url: string; token: string },
-  fallback: RateLimiter = createMemoryRateLimiter(options),
-  fetcher: typeof fetch = fetch,
-): RateLimiter {
-  const { url, token, limit, windowMs, prefix } = options;
-  return {
-    async limit(key) {
-      const windowStart = Math.floor(Date.now() / windowMs) * windowMs;
-      const redisKey = `rl:${prefix}:${key}:${windowStart}`;
-      try {
-        const response = await fetcher(`${url.replace(/\/$/, '')}/pipeline`, {
-          method: 'POST',
-          headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-          body: JSON.stringify([
-            ['INCR', redisKey],
-            ['PEXPIRE', redisKey, String(windowMs)],
-          ]),
-          signal: AbortSignal.timeout(1500),
-          cache: 'no-store',
-        });
-        if (!response.ok) throw new Error(`Upstash responded ${response.status}`);
-        const [incr] = (await response.json()) as [{ result?: number; error?: string }];
-        if (typeof incr?.result !== 'number') throw new Error(incr?.error ?? 'Unexpected Upstash response');
-        return {
-          success: incr.result <= limit,
-          limit,
-          remaining: Math.max(0, limit - incr.result),
-          resetAt: windowStart + windowMs,
-        };
-      } catch (error) {
-        console.warn('[rate-limit] Upstash unavailable, using in-memory limiter:', (error as Error).message);
-        return fallback.limit(key);
-      }
     },
   };
 }

@@ -1,22 +1,14 @@
 import 'server-only';
 import { createHash } from 'node:crypto';
-import { env } from '@/lib/env/server';
-import {
-  createMemoryRateLimiter,
-  createUpstashRateLimiter,
-  type RateLimiter,
-  type RateLimitOptions,
-} from './rate-limit';
+import { createMemoryRateLimiter, type RateLimiter, type RateLimitOptions } from './rate-limit';
 
 const limiters = new Map<string, RateLimiter>();
 
-/** Returns a memoised limiter backed by Upstash when configured, memory otherwise. */
+/** Returns a memoised in-memory limiter for the given prefix. */
 export function getRateLimiter(options: RateLimitOptions): RateLimiter {
   const existing = limiters.get(options.prefix);
   if (existing) return existing;
-  const { UPSTASH_REDIS_REST_URL: url, UPSTASH_REDIS_REST_TOKEN: token } = env.raw;
-  const limiter =
-    url && token ? createUpstashRateLimiter({ ...options, url, token }) : createMemoryRateLimiter(options);
+  const limiter = createMemoryRateLimiter(options);
   limiters.set(options.prefix, limiter);
   return limiter;
 }

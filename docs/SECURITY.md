@@ -24,7 +24,7 @@ To move to nonces: generate one in `src/proxy.ts`, widen its matcher to all page
 | JSON-LD                     | Escaped (`<`, `>`, `&`, U+2028/2029) so data cannot break out of the script element                                                                                         |
 | WebMCP tools and form hints | Read-only, or pre-fill only. No tool or annotated form submits on its own; a person confirms every booking and message                                                      |
 
-Rate-limit keys are a SHA-256 hash of the platform-provided client IP; raw IPs are never stored. Limits are per instance by default; set the Upstash variables for shared limits. If Redis is unreachable the limiter falls back to memory.
+Rate-limit keys are a SHA-256 hash of the platform-provided client IP; raw IPs are never stored. Counters are kept in memory, so on serverless hosts each instance counts on its own: a guard against form spam, not a hard global limit. If the site ever needs strict limits, add a shared store such as Redis behind `getRateLimiter` in `src/lib/security/server.ts`.
 
 ## Health information
 
